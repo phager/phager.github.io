@@ -151,3 +151,15 @@ th:first-child {
 body>h1 {
     margin-top: 40px;
 }
+.profile-image {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
