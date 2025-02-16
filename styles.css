@@ -70,3 +70,23 @@ a:hover {
         /* Coffee brown */
     font-style: italic;
 }
+.logo {
+    max-height: 40px;
+    max-width: 100px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+td:first-child {
+    width: 120px;
+    text-align: center;
+    background-color: #6F4E37;
+    /* Coffee brown */
+    padding: 10px;
+}
+
+/* Update first th to match logo cells */
+th:first-child {
+    background-color: #6F4E37;
+    /* Coffee brown */
+}
