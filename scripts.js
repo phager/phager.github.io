@@ -11,12 +11,12 @@ let lastColumn = -1;
 
 function sortTable(n) {
     const currentTime = new Date().getTime();
+    const table = document.getElementById('coffeeTable');
 
+    // Handle triple-click reset
     if (lastColumn === n && currentTime - lastClickTime < 500) {
         clickCount++;
         if (clickCount === 3) {
-            // Triple click - reset to original order
-            const table = document.getElementById('coffeeTable');
             while (table.rows.length > 1) {
                 table.deleteRow(1);
             }
@@ -34,46 +34,38 @@ function sortTable(n) {
     lastClickTime = currentTime;
     lastColumn = n;
 
-    // Original sorting logic
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("coffeeTable");
-    switching = true;
-    dir = clickCount === 1 ? "asc" : "desc";
-
+    // Sorting logic
+    let switching = true;
+    let dir = clickCount === 1 ? "asc" : "desc";
+    
     while (switching) {
         switching = false;
-        rows = table.rows;
+        const rows = table.rows;
 
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
+        for (let i = 1; i < rows.length - 1; i++) {
+            let shouldSwitch = false;
+            const x = rows[i].getElementsByTagName("TD")[n];
+            const y = rows[i + 1].getElementsByTagName("TD")[n];
 
-            // Get text content, handling links
-            var xContent = x.textContent || x.innerText;
-            var yContent = y.textContent || y.innerText;
+            const xContent = x.textContent || x.innerText;
+            const yContent = y.textContent || y.innerText;
 
-            if (dir == "asc") {
+            if (dir === "asc") {
                 if (xContent.toLowerCase() > yContent.toLowerCase()) {
                     shouldSwitch = true;
                     break;
                 }
-            } else if (dir == "desc") {
+            } else {
                 if (xContent.toLowerCase() < yContent.toLowerCase()) {
                     shouldSwitch = true;
                     break;
                 }
             }
-        }
 
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchcount++;
-        } else {
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                 switching = true;
+                break;
             }
         }
     }
