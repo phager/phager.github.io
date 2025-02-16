@@ -90,3 +90,62 @@ th:first-child {
     background-color: #6F4E37;
     /* Coffee brown */
 }
+/* Navigation */
+.navigation {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.navigation a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 4px;
+    background-color: #6F4E37;
+    color: #FDF6E3;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    background-color: #8B4513;
+}
+
+/* Bio Styles */
+.bio-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.bio-content {
+    line-height: 1.6;
+    margin: 30px 0;
+}
+
+.bio-content p {
+    margin-bottom: 20px;
+}
+
+.contact-links {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #D2B48C;
+}
+
+.contact-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.contact-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Add navigation to coffee page */
+body>h1 {
+    margin-top: 40px;
+}
