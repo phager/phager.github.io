@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+    <style>
+        .sortable {
+            cursor: pointer;
+        }
+    
+        .sortable:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script src="scripts.js" defer></script>
 </head>
 
 <body>
@@ -18,11 +28,11 @@
 
     <h1>Coffee Preferences</h1>
 
-    <table>
+    <table id="coffeeTable">
         <tr>
             <th></th>
-            <th>Company</th>
-            <th>Coffee</th>
+            <th class="sortable" onclick="sortTable(1)">Company ↕</th>
+            <th class="sortable" onclick="sortTable(2)">Coffee ↕</th>
         </tr>
         <tr>
             <td><img src="https://m.media-amazon.com/images/S/stores-image-uploads-na-prod/f/AmazonStores/ATVPDKIKX0DER/75c0cf8248ab467972782dcfb5c16a55.w1500.h1500._RO749,1,0,0,0,0,0,0,0,0,15_FMpng_.jpg"
