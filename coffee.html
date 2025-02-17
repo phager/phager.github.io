@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <script type="module">
-        import { loadHeader, loadNavigation } from './scripts/loadComponents.js';
+            import { loadHeader, loadNavigation, loadSocialLinks } from './scripts/loadComponents.js';
     loadHeader('coffee');
         document.addEventListener('DOMContentLoaded', () => {
             loadNavigation('coffee');
+            loadSocialLinks();
         });
 </script>
 
@@ -26,6 +27,7 @@
     <div class="disclaimer">
         As an Amazon Associate I earn from qualifying purchases.
     </div>
+    <div id="social-links-placeholder"></div>
 </body>
 
 </html>
