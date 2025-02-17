@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        .content {
-            opacity: 0;
-            transition: opacity 0.2s ease-in;
-        }
-
-        .content.loaded {
-            opacity: 1;
-        }
-    </style>
 </head>
 <body>
     <div class="content">
@@ -20,7 +10,7 @@
 
         <table id="researchTable"></table>
         <div id="social-links-placeholder"></div>
-        </div>
+    </div>
 
     <script type="module">
             import { loadHeader, loadNavigation, loadSocialLinks } from './scripts/loadComponents.js';

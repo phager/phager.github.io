@@ -234,3 +234,13 @@ body > h1 {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+/* Content loading transition */
+.content {
+    opacity: 0;
+    transition: opacity 0.1s ease-in;
+}
+
+.content.loaded {
+    opacity: 1;
+}
