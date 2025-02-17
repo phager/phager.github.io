@@ -89,10 +89,10 @@ export const tableData = {
         rows: [
             {
                 title: {
-                    text: 'Efficient Computation of Feedback Control Sequences Using a Sparse Basis',
+                    text: 'ASR for Under-Resourced Languages From Probabilistic Transcription',
                     link: 'https://ieeexplore.ieee.org/abstract/document/7707303'
                 },
-                publication: 'IEEE Conference on Decision and Control (CDC)',
+                publication: 'IEEE/ACM Transactions on Audio, Speech, and Language Processing',
                 year: '2017'
             }
         ]
