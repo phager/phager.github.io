@@ -1,39 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-</head>
-<body>
-    <div class="content">
-        <div id="nav-placeholder"></div>
+    <head> </head>
+    <body>
+        <div class="content">
+            <div id="nav-placeholder"></div>
 
-        <h1>Blog</h1>
+            <h1>Blog</h1>
 
-        <table id="blogTable"></table>
-        <div class="disclaimer">
-            <p>You can find more of my writing on <a href="https://talltale.substack.com/">Substack</a></p>
+            <table id="blogTable"></table>
+            <div class="disclaimer">
+                <p>
+                    You can find more of my writing on
+                    <a href="https://talltale.substack.com/">Substack</a>
+                </p>
+            </div>
+            <div id="social-links-placeholder"></div>
         </div>
-        <div id="social-links-placeholder"></div>
-    </div>
 
-    <script type="module">
-            import { loadHeader, loadNavigation, loadSocialLinks } from './scripts/loadComponents.js';
-        import { tableData } from './data/tables.js';
-        import { generateTable } from './scripts/tableGenerator.js';
+        <script type="module">
+            import {
+                loadHeader,
+                loadNavigation,
+                loadSocialLinks,
+            } from "./scripts/loadComponents.js";
+            import { tableData } from "./data/tables.js";
+            import { generateTable } from "./scripts/tableGenerator.js";
 
             // Load header first
             await loadHeader();
 
             // Then load other components
-            await Promise.all([
-                loadNavigation('blog'),
-                loadSocialLinks()
-            ]);
+            await Promise.all([loadNavigation("blog"), loadSocialLinks()]);
 
             // Generate table
-            generateTable('blogTable', tableData.blog);
+            generateTable("blogTable", tableData.blog);
 
             // Show content when everything is loaded
-            document.querySelector('.content').classList.add('loaded');
+            document.querySelector(".content").classList.add("loaded");
         </script>
-</body>
+    </body>
 </html>

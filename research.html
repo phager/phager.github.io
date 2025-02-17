@@ -1,36 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-</head>
-<body>
-    <div class="content">
-        <div id="nav-placeholder"></div>
+    <head> </head>
+    <body>
+        <div class="content">
+            <div id="nav-placeholder"></div>
 
-        <h1>Research</h1>
+            <h1>Research</h1>
 
-        <table id="researchTable"></table>
-        <div id="social-links-placeholder"></div>
-    </div>
+            <table id="researchTable"></table>
+            <div id="social-links-placeholder"></div>
+        </div>
 
-    <script type="module">
-            import { loadHeader, loadNavigation, loadSocialLinks } from './scripts/loadComponents.js';
-        import { tableData } from './data/tables.js';
-        import { generateTable } from './scripts/tableGenerator.js';
+        <script type="module">
+            import {
+                loadHeader,
+                loadNavigation,
+                loadSocialLinks,
+            } from "./scripts/loadComponents.js";
+            import { tableData } from "./data/tables.js";
+            import { generateTable } from "./scripts/tableGenerator.js";
 
             // Load header first
             await loadHeader();
 
             // Then load other components
-            await Promise.all([
-                loadNavigation('research'),
-                loadSocialLinks()
-            ]);
+            await Promise.all([loadNavigation("research"), loadSocialLinks()]);
 
             // Generate table
-            generateTable('researchTable', tableData.research);
+            generateTable("researchTable", tableData.research);
 
-    // Show content when everything is loaded
-    document.querySelector('.content').classList.add('loaded');
-</script>
-</body>
+            // Show content when everything is loaded
+            document.querySelector(".content").classList.add("loaded");
+        </script>
+    </body>
 </html>

@@ -1,39 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-</head>
-<body>
-    <div class="content">
-        <div id="nav-placeholder"></div>
+    <head> </head>
+    <body>
+        <div class="content">
+            <div id="nav-placeholder"></div>
 
-        <h1>Coffee</h1>
+            <h1>Coffee</h1>
 
-        <table id="coffeeTable"></table>
-        <div class="disclaimer">
-            As an Amazon Associate I earn from qualifying purchases.
+            <table id="coffeeTable"></table>
+            <div class="disclaimer">As an Amazon Associate I earn from qualifying purchases.</div>
+            <div id="social-links-placeholder"></div>
         </div>
-        <div id="social-links-placeholder"></div>
-</div>
 
-    <script type="module">
-            import { loadHeader, loadNavigation, loadSocialLinks } from './scripts/loadComponents.js';
-        import { tableData } from './data/tables.js';
-        import { generateTable } from './scripts/tableGenerator.js';
+        <script type="module">
+            import {
+                loadHeader,
+                loadNavigation,
+                loadSocialLinks,
+            } from "./scripts/loadComponents.js";
+            import { tableData } from "./data/tables.js";
+            import { generateTable } from "./scripts/tableGenerator.js";
 
             // Load header first
-            await loadHeader('coffee');
+            await loadHeader("coffee");
 
             // Then load other components
-            await Promise.all([
-                loadNavigation('coffee'),
-                loadSocialLinks()
-            ]);
+            await Promise.all([loadNavigation("coffee"), loadSocialLinks()]);
 
             // Generate table
-            generateTable('coffeeTable', tableData.coffee);
+            generateTable("coffeeTable", tableData.coffee);
 
-    // Show content when everything is loaded
-    document.querySelector('.content').classList.add('loaded');
-</script>
-</body>
+            // Show content when everything is loaded
+            document.querySelector(".content").classList.add("loaded");
+        </script>
+    </body>
 </html>

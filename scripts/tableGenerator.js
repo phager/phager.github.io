@@ -11,7 +11,7 @@ export function generateTable(tableId, data) {
         if (lastColumn !== columnIndex) {
             clickCount = 0;
         }
-        
+
         clickCount++;
         lastColumn = columnIndex;
 
@@ -39,7 +39,7 @@ export function generateTable(tableId, data) {
                 table.deleteRow(1);
             }
             // Restore original rows
-            originalRows.forEach(row => {
+            originalRows.forEach((row) => {
                 table.appendChild(row.cloneNode(true));
             });
             return;
@@ -51,16 +51,16 @@ export function generateTable(tableId, data) {
         }
 
         // Add sorted rows
-        rows.forEach(row => table.appendChild(row));
+        rows.forEach((row) => table.appendChild(row));
     }
 
     // Generate headers
-    const headerRow = document.createElement('tr');
+    const headerRow = document.createElement("tr");
     data.headers.forEach((header, index) => {
-        const th = document.createElement('th');
+        const th = document.createElement("th");
         th.textContent = header;
-        if (header === 'Company' || header === 'Coffee') {
-            th.classList.add('sortable');
+        if (header === "Company" || header === "Coffee") {
+            th.classList.add("sortable");
             th.onclick = () => sortTable(index);
             th.textContent = `${header} ↕`; // Add sort indicator
         }
@@ -69,42 +69,42 @@ export function generateTable(tableId, data) {
     table.appendChild(headerRow);
 
     // Generate and store original rows
-    data.rows.forEach(row => {
-        const tr = document.createElement('tr');
-        
-        Object.values(row).forEach(cell => {
-            const td = document.createElement('td');
-            
-            if (typeof cell === 'string') {
+    data.rows.forEach((row) => {
+        const tr = document.createElement("tr");
+
+        Object.values(row).forEach((cell) => {
+            const td = document.createElement("td");
+
+            if (typeof cell === "string") {
                 td.textContent = cell;
             } else if (cell.src !== undefined) {
                 if (cell.src) {
-                    const img = document.createElement('img');
+                    const img = document.createElement("img");
                     img.src = cell.src;
                     img.alt = cell.alt;
-                    img.classList.add('logo');
+                    img.classList.add("logo");
                     td.appendChild(img);
                 }
             } else if (cell.link) {
-                const a = document.createElement('a');
+                const a = document.createElement("a");
                 a.href = cell.link;
                 a.textContent = cell.text;
                 td.appendChild(a);
-                
+
                 if (cell.external) {
-                    const span = document.createElement('span');
-                    span.classList.add('external-link');
-                    span.textContent = '(Substack)';
+                    const span = document.createElement("span");
+                    span.classList.add("external-link");
+                    span.textContent = "(Substack)";
                     td.appendChild(span);
                 }
             } else if (cell.text) {
                 td.textContent = cell.text;
             }
-            
+
             tr.appendChild(td);
         });
-        
+
         table.appendChild(tr);
         originalRows.push(tr.cloneNode(true)); // Store a copy of the original row
     });
-} 
+}
