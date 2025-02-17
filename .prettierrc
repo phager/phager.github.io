@@ -4,5 +4,7 @@
     "semi": true,
     "singleQuote": false,
     "printWidth": 100,
-    "bracketSpacing": true
+    "bracketSpacing": true,
+    "htmlWhitespaceSensitivity": "css",
+    "embeddedLanguageFormatting": "auto"
 } 
