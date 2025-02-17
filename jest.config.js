@@ -1,4 +1,8 @@
-module.exports = {
+export default {
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['@testing-library/jest-dom']
+  transform: {},
+  moduleFileExtensions: ['js', 'mjs'],
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1'
+  }
 }; 

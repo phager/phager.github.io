@@ -18,28 +18,19 @@
 
     <h1>Blog Posts</h1>
 
-    <table class="blog-table">
-        <tr>
-            <th>Title</th>
-            <th>Date</th>
-        </tr>
-        <tr>
-            <td>
-                <a href="https://talltale.substack.com/p/flags-with-astronomical-objects">Flags with Astronomical Objects</a>
-                <span class="external-link">(Substack)</span>
-            </td>
-            <td>Jun 21, 2023</td>
-            </tr>
-            <tr>
-                <td>
-                    <em>More articles coming soon...</em>
-                </td>
-            <td></td>
-        </tr>
-    </table>
-<div class="disclaimer">
-    <p>You can find more of my writing on <a href="https://talltale.substack.com/">Substack</a></p>
-</div>
+    <table id="blogTable"></table>
+    <script type="module">
+        import { tableData } from './data/tables.js';
+        import { generateTable } from './scripts/tableGenerator.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTable('blogTable', tableData.blog);
+        });
+    </script>
+    
+    <div class="disclaimer">
+        <p>You can find more of my writing on <a href="https://talltale.substack.com/">Substack</a></p>
+    </div>
 </body>
 
 </html>

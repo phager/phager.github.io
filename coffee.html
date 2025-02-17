@@ -28,44 +28,15 @@
 
     <h1>Coffee Preferences</h1>
 
-    <table id="coffeeTable">
-        <tr>
-            <th></th>
-            <th class="sortable" onclick="sortTable(1)">Company ↕</th>
-            <th class="sortable" onclick="sortTable(2)">Coffee ↕</th>
-        </tr>
-        <tr>
-            <td><img src="https://m.media-amazon.com/images/S/stores-image-uploads-na-prod/f/AmazonStores/ATVPDKIKX0DER/75c0cf8248ab467972782dcfb5c16a55.w1500.h1500._RO749,1,0,0,0,0,0,0,0,0,15_FMpng_.jpg"
-                    alt="Counter Culture Coffee logo" class="logo"></td>
-            <td><a href="https://amzn.to/4k2g4yC">Counter Culture Coffee</a></td>
-            <td><a href="https://amzn.to/4hSfsd1">Counter Culture Coffee - Apollo</a></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><a href="https://amzn.to/4hHae3O">Equator Coffee</a></td>
-            <td><a href="https://amzn.to/3Qb0aEf">Tigerwalk Espresso</a></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>Wrecking Ball Coffee Roasters</td>
-            <td>Pillow Fight Espresso</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>Saint Frank Coffee</td>
-            <td>Espresso</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><a href="https://amzn.to/4hupe5c">Illy</a></td>
-            <td><a href="https://amzn.to/3WTcNrq">Classico</a></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><a href="https://amzn.to/40S3zNb">Blue Bottle Coffee</a></td>
-            <td><a href="https://amzn.to/42P775t">Decaf</a></td>
-        </tr>
-    </table>
+    <table id="coffeeTable"></table>
+    <script type="module">
+        import { tableData } from './data/tables.js';
+        import { generateTable } from './scripts/tableGenerator.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTable('coffeeTable', tableData.coffee);
+        });
+    </script>
 
     <div class="disclaimer">
         As an Amazon Associate I earn from qualifying purchases.

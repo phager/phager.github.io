@@ -18,19 +18,15 @@
 
     <h1>Research Publications</h1>
 
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Publication</th>
-            <th>Year</th>
-        </tr>
-        <tr>
-            <td><a href="https://ieeexplore.ieee.org/abstract/document/7707303">Efficient Computation of Feedback
-                    Control Sequences Using a Sparse Basis</a></td>
-            <td>IEEE Conference on Decision and Control (CDC)</td>
-            <td>2016</td>
-        </tr>
-    </table>
+    <table id="researchTable"></table>
+    <script type="module">
+        import { tableData } from './data/tables.js';
+        import { generateTable } from './scripts/tableGenerator.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTable('researchTable', tableData.research);
+        });
+    </script>
 </body>
 
 </html>
