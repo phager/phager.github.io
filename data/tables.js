@@ -12,7 +12,7 @@ export const tableData = {
                     link: 'https://amzn.to/4k2g4yC'
                 },
                 coffee: {
-                    text: 'Counter Culture Coffee - Apollo',
+                    text: 'Apollo',
                     link: 'https://amzn.to/4hSfsd1'
                 }
             },

@@ -20,15 +20,15 @@ h1 {
     font-weight: 500;
 }
 
-/* Base table styles that apply to all tables */
+/* Base table styles */
 table {
     width: 100%;
     border-collapse: collapse;
     background-color: #FFFAF0;
-        /* Floral white */
-        box-shadow: 0 1px 3px rgba(74, 55, 40, 0.2);
+    box-shadow: 0 1px 3px rgba(74, 55, 40, 0.2);
     border-radius: 8px;
     overflow: hidden;
+    table-layout: fixed;
 }
 
 th,
@@ -36,8 +36,49 @@ td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #D2B48C;
-        /* Tan */
-}
+    word-wrap: break-word;
+        vertical-align: middle;
+    }
+    
+    /* Research table specific widths */
+    #researchTable th:nth-child(1),
+    #researchTable td:nth-child(1) {
+        width: 40%;
+    }
+    
+    #researchTable th:nth-child(2),
+    #researchTable td:nth-child(2) {
+        width: 45%;
+    }
+    
+    #researchTable th:nth-child(3),
+    #researchTable td:nth-child(3) {
+        width: 15%;
+    }
+    
+    #coffeeTable th:nth-child(1),
+    #coffeeTable td:nth-child(1) {
+        width: 15%;
+        text-align: center;
+    }
+    
+    #coffeeTable th:nth-child(2),
+    #coffeeTable td:nth-child(2) {
+        width: 55%;
+    }
+    
+    #coffeeTable th:nth-child(3),
+    #coffeeTable td:nth-child(3) {
+        width: 30%;
+    }
+    
+    /* Logo specific styles */
+    #coffeeTable .logo {
+        max-height: 35px;
+        max-width: 70px;
+        object-fit: contain;
+        vertical-align: middle;
+    }
 
 th {
     font-weight: 600;
@@ -73,22 +114,7 @@ a:hover {
         /* Coffee brown */
     font-style: italic;
 }
-.logo {
-    max-height: 40px;
-    max-width: 100px;
-    object-fit: contain;
-    vertical-align: middle;
-}
 
-td:first-child {
-    width: 120px;
-    text-align: center;
-    padding: 10px;
-}
-
-td:first-child a {
-    color: #8B4513;
-}
 /* Navigation */
 .navigation {
     margin-bottom: 40px;
