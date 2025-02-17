@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html>
-<script type="module">
-            import { loadHeader, loadNavigation, loadSocialLinks } from './scripts/loadComponents.js';
-    loadHeader();
-        document.addEventListener('DOMContentLoaded', () => {
-            loadNavigation('blog');
-            loadSocialLinks();
-        });
-</script>
+<head>
+    <style>
+        .content {
+            opacity: 0;
+            transition: opacity 0.2s ease-in;
+        }
 
+        .content.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
 <body>
-    <div id="nav-placeholder"></div>
+    <div class="content">
+        <div id="nav-placeholder"></div>
 
-    <h1>Blog</h1>
+        <h1>Blog</h1>
 
-    <table id="blogTable"></table>
+        <table id="blogTable"></table>
+        <div class="disclaimer">
+            <p>You can find more of my writing on <a href="https://talltale.substack.com/">Substack</a></p>
+        </div>
+        <div id="social-links-placeholder"></div>
+        </div>
+
     <script type="module">
+            import { loadHeader, loadNavigation, loadSocialLinks } from './scripts/loadComponents.js';
         import { tableData } from './data/tables.js';
         import { generateTable } from './scripts/tableGenerator.js';
 
-        document.addEventListener('DOMContentLoaded', () => {
-            generateTable('blogTable', tableData.blog);
-        });
-    </script>
-    
-    <div class="disclaimer">
-        <p>You can find more of my writing on <a href="https://talltale.substack.com/">Substack</a></p>
-    </div>
-    <div id="social-links-placeholder"></div>
-</body>
+            // Load header first
+            await loadHeader();
 
+            // Then load other components
+            await Promise.all([
+                loadNavigation('blog'),
+                loadSocialLinks()
+            ]);
+
+            // Generate table
+            generateTable('blogTable', tableData.blog);
+
+    // Show content when everything is loaded
+    document.querySelector('.content').classList.add('loaded');
+</script>
+</body>
 </html>
