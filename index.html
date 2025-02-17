@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
+<script type="module">
+    import { loadHeader, loadNavigation } from './scripts/loadComponents.js';
+    loadHeader();
+    document.addEventListener('DOMContentLoaded', () => {
+        loadNavigation('index');
+    });
+</script>
 
 <body>
-    <nav class="navigation">
-        <a href="index.html" class="active">About</a>
-        <a href="coffee.html">Coffee Preferences</a>
-        <a href="research.html">Research</a>
-        <a href="blog.html">Blog</a>
-    </nav>
+    <div id="nav-placeholder"></div>
 
     <div class="bio-container">
         <h1>Welcome</h1>
@@ -44,11 +39,11 @@
                 <li><a href="https://www.instagram.com/tallpauldoll/">Instagram</a></li>
             </ul>
         </div>
-<div class="social-links">
-    <a href="https://talltale.substack.com/" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-newspaper"></i> Substack
-    </a>
-</div>
+        <div class="social-links">
+            <a href="https://talltale.substack.com/" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-newspaper"></i> Substack
+            </a>
+        </div>
     </div>
 </body>
 </html>
