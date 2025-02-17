@@ -238,7 +238,7 @@ body > h1 {
 /* Content loading transition */
 .content {
     opacity: 0;
-    transition: opacity 0.1s ease-in;
+    transition: opacity 0.2s ease-in;
 }
 
 .content.loaded {
