@@ -1,6 +1,17 @@
 <!doctype html>
 <html>
-    <head> </head>
+    <head>
+        <style>
+            .content {
+                opacity: 0;
+                transition: opacity 0.1s ease-in;
+            }
+    
+            .content.loaded {
+                opacity: 1;
+            }
+        </style>
+    </head>
     <body>
         <div class="content">
             <div id="nav-placeholder"></div>
