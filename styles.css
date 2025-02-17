@@ -20,6 +20,7 @@ h1 {
     font-weight: 500;
 }
 
+/* Base table styles that apply to all tables */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -39,11 +40,11 @@ td {
 }
 
 th {
+    font-weight: 600;
     background-color: #6F4E37;
         /* Coffee brown */
         color: #FDF6E3;
         /* Warm cream */
-    font-weight: 600;
 }
 
 tr:hover {
@@ -82,15 +83,11 @@ a:hover {
 td:first-child {
     width: 120px;
     text-align: center;
-    background-color: #6F4E37;
-    /* Coffee brown */
     padding: 10px;
 }
 
-/* Update first th to match logo cells */
-th:first-child {
-    background-color: #6F4E37;
-    /* Coffee brown */
+td:first-child a {
+    color: #8B4513;
 }
 /* Navigation */
 .navigation {
@@ -162,4 +159,10 @@ body>h1 {
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.external-link {
+    font-size: 0.8em;
+    color: #6F4E37;
+    margin-left: 8px;
 }
