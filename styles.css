@@ -1,222 +1,236 @@
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #FDF6E3;
-        /* Warm cream color */
-        color: #4A3728;
-        /* Dark coffee brown */
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fdf6e3;
+  /* Warm cream color */
+  color: #4a3728;
+  /* Dark coffee brown */
 }
 
 h1 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #8B4513;
-        /* Saddle brown */
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    font-weight: 500;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #8b4513;
+  /* Saddle brown */
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
 }
 
 /* Base table styles */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #FFFAF0;
-    box-shadow: 0 1px 3px rgba(74, 55, 40, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-    table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fffaf0;
+  box-shadow: 0 1px 3px rgba(74, 55, 40, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  table-layout: fixed;
 }
 
 th,
 td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #D2B48C;
-    word-wrap: break-word;
-        vertical-align: middle;
-    }
-    
-    /* Research table specific widths */
-    #researchTable th:nth-child(1),
-    #researchTable td:nth-child(1) {
-        width: 40%;
-    }
-    
-    #researchTable th:nth-child(2),
-    #researchTable td:nth-child(2) {
-        width: 45%;
-    }
-    
-    #researchTable th:nth-child(3),
-    #researchTable td:nth-child(3) {
-        width: 15%;
-    }
-    
-    #coffeeTable th:nth-child(1),
-    #coffeeTable td:nth-child(1) {
-        width: 15%;
-        text-align: center;
-    }
-    
-    #coffeeTable th:nth-child(2),
-    #coffeeTable td:nth-child(2) {
-        width: 55%;
-    }
-    
-    #coffeeTable th:nth-child(3),
-    #coffeeTable td:nth-child(3) {
-        width: 30%;
-    }
-    
-    /* Logo specific styles */
-    #coffeeTable .logo {
-        max-height: 35px;
-        max-width: 70px;
-        object-fit: contain;
-        vertical-align: middle;
-    }
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #d2b48c;
+  word-wrap: break-word;
+  vertical-align: middle;
+}
+
+/* Research table specific widths */
+#researchTable th:nth-child(1),
+#researchTable td:nth-child(1) {
+  width: 40%;
+}
+
+#researchTable th:nth-child(2),
+#researchTable td:nth-child(2) {
+  width: 45%;
+}
+
+#researchTable th:nth-child(3),
+#researchTable td:nth-child(3) {
+  width: 15%;
+}
+
+#blogTable th:nth-child(1),
+#blogTable td:nth-child(1) {
+  width: 85%;
+  text-align: center;
+}
+
+#blogTable th:nth-child(2),
+#blogTable td:nth-child(2) {
+  width: 15%;
+}
+#coffeeTable th:nth-child(1),
+#coffeeTable td:nth-child(1) {
+  width: 15%;
+  text-align: center;
+}
+
+#coffeeTable th:nth-child(2),
+#coffeeTable td:nth-child(2) {
+  width: 55%;
+}
+
+#coffeeTable th:nth-child(3),
+#coffeeTable td:nth-child(3) {
+  width: 30%;
+}
+
+/* Logo specific styles */
+#coffeeTable .logo {
+  max-height: 35px;
+  max-width: 70px;
+  object-fit: contain;
+  vertical-align: middle;
+}
 
 th {
-    font-weight: 600;
-    background-color: #6F4E37;
-        /* Coffee brown */
-        color: #FDF6E3;
-        /* Warm cream */
+  font-weight: 600;
+  background-color: #6f4e37;
+  /* Coffee brown */
+  color: #fdf6e3;
+  /* Warm cream */
 }
 
 tr:hover {
-    background-color: #F5E6D3;
-        /* Light coffee cream */
+  background-color: #f5e6d3;
+  /* Light coffee cream */
 }
 
 a {
-    color: #8B4513;
-        /* Saddle brown */
-    text-decoration: none;
-    transition: color 0.2s ease;
+  color: #8b4513;
+  /* Saddle brown */
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #D2691E;
-        /* Chocolate */
-    text-decoration: underline;
+  color: #d2691e;
+  /* Chocolate */
+  text-decoration: underline;
 }
 
 .disclaimer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9em;
-    color: #6F4E37;
-        /* Coffee brown */
-    font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #6f4e37;
+  /* Coffee brown */
+  font-style: italic;
 }
 
 /* Navigation */
 .navigation {
-    margin-bottom: 40px;
-    text-align: center;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .navigation a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-radius: 4px;
-    background-color: #6F4E37;
-    color: #FDF6E3;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 4px;
+  background-color: #6f4e37;
+  color: #fdf6e3;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
 }
 
 .navigation a:hover,
 .navigation a.active {
-    background-color: #8B4513;
+  background-color: #8b4513;
 }
 
 /* Bio Styles */
 .bio-container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .bio-content {
-    line-height: 1.6;
-    margin: 30px 0;
+  line-height: 1.6;
+  margin: 30px 0;
 }
 
 .bio-content p {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .contact-links {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 2px solid #D2B48C;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #d2b48c;
 }
 
 .contact-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
 }
 
 .contact-links li {
-    display: inline-block;
-    margin-right: 20px;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 /* Add navigation to coffee page */
-body>h1 {
-    margin-top: 40px;
+body > h1 {
+  margin-top: 40px;
 }
 .profile-image {
-    text-align: center;
-    margin: 30px 0;
+  text-align: center;
+  margin: 30px 0;
 }
 
 .avatar {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .external-link {
-    font-size: 0.8em;
-    color: #6F4E37;
-    margin-left: 8px;
+  font-size: 0.8em;
+  color: #6f4e37;
+  margin-left: 8px;
 }
 .social-links ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
 }
 
 .social-links i {
-    font-size: 1.5rem;
-    color: #333;
-    transition: color 0.3s ease;
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
 .social-links a:hover i {
-    color: #007bff;
+  color: #007bff;
 }
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
