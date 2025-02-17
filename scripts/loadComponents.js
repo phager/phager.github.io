@@ -22,4 +22,10 @@ export async function loadNavigation(activePage) {
     if (navPlaceholder) {
         navPlaceholder.outerHTML = html;
     }
+}
+
+export async function loadSocialLinks() {
+    const response = await fetch('/components/social-links.html');
+    const text = await response.text();
+    document.getElementById('social-links-placeholder').innerHTML = text;
 } 
