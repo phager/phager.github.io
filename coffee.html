@@ -1,22 +1,9 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
-    <style>
-        .sortable {
-            cursor: pointer;
-        }
-    
-        .sortable:hover {
-            text-decoration: underline;
-        }
-    </style>
-    <script src="scripts.js" defer></script>
-</head>
+<script type="module">
+    import { loadHeader } from './scripts/loadComponents.js';
+    loadHeader('coffee');
+</script>
 
 <body>
     <nav class="navigation">
