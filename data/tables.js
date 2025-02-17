@@ -93,7 +93,7 @@ export const tableData = {
                     link: 'https://ieeexplore.ieee.org/abstract/document/7707303'
                 },
                 publication: 'IEEE Conference on Decision and Control (CDC)',
-                year: '2016'
+                year: '2017'
             }
         ]
     },
