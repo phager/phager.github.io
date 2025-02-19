@@ -11,6 +11,7 @@ export async function loadHeader(page = "") {
     }
 }
 
+// Add this to your loadComponents.js file
 export async function loadNavigation(activePage) {
     const response = await fetch("/components/navigation.html");
     let html = await response.text();
@@ -21,6 +22,25 @@ export async function loadNavigation(activePage) {
     const navPlaceholder = document.getElementById("nav-placeholder");
     if (navPlaceholder) {
         navPlaceholder.outerHTML = html;
+        
+        // Add mobile menu functionality
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
     }
 }
 
@@ -29,3 +49,4 @@ export async function loadSocialLinks() {
     const text = await response.text();
     document.getElementById("social-links-placeholder").innerHTML = text;
 }
+
