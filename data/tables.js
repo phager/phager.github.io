@@ -44,6 +44,20 @@ export const tableData = {
             },
             {
                 logo: {
+                    src: "https://freight.cargo.site/w/1272/q/94/i/4e83a84ef080b8b6856704f712785e845a8e93509b3bf2fc6f5202595fd29295/intelli_logo.png",
+                    alt: "Intelligentsia Coffee logo",
+                },
+                company: {
+                    text: "Intelligentsia Coffee",
+                    link: "https://amzn.to/4klwbXY",
+                },
+                coffee: {
+                    text: "Black Cat Espresso",
+                    link: "https://amzn.to/4h8aA2D",
+                },
+            },
+            {
+                logo: {
                     src: "https://www.saintfrankcoffee.com/cdn/shop/files/floral-flourish-centered.png?v=1728598471&width=400",
                     alt: "Saint Frank Coffee logo",
                 },
