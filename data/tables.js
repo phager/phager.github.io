@@ -96,6 +96,20 @@ export const tableData = {
                     link: "https://amzn.to/42P775t",
                 },
             },
+            {
+                logo: {
+                    src: "https://www.eightoclock.com/cdn/shop/files/new-logo_180x.png?v=1669080884",
+                    alt: "Eight O'clock Coffee logo",
+                },
+                company: {
+                    text: "Eight O'clock Coffee",
+                    link: "https://amzn.to/3Fq1GA8",
+                },
+                coffee: {
+                    text: "Dark Italian Espresso",
+                    link: "https://amzn.to/3FgZsDm",
+                },
+            },
         ],
     },
     research: {
