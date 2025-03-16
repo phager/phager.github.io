@@ -70,22 +70,31 @@ td {
 #blogTable td:nth-child(2) {
   width: 15%;
 }
+/* Coffee table column widths - updated for 5 columns */
 #coffeeTable th:nth-child(1),
 #coffeeTable td:nth-child(1) {
-  width: 15%;
   text-align: center;
 }
 
 #coffeeTable th:nth-child(2),
 #coffeeTable td:nth-child(2) {
-  width: 55%;
+    text-align: center;
 }
 
 #coffeeTable th:nth-child(3),
 #coffeeTable td:nth-child(3) {
-  width: 30%;
+  text-align: center;
 }
 
+#coffeeTable th:nth-child(4),
+#coffeeTable td:nth-child(4) {
+  text-align: center;
+}
+
+#coffeeTable th:nth-child(5),
+#coffeeTable td:nth-child(5) {
+  text-align: center;
+}
 /* Logo specific styles */
 #coffeeTable .logo {
   max-height: 35px;

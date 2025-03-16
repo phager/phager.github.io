@@ -59,7 +59,7 @@ export function generateTable(tableId, data) {
     data.headers.forEach((header, index) => {
         const th = document.createElement("th");
         th.textContent = header;
-        if (header === "Company" || header === "Coffee") {
+        if (header === "Company" || header === "Coffee" || header === "Tier" || header === "Date Added") {
             th.classList.add("sortable");
             th.onclick = () => sortTable(index);
             th.textContent = `${header} ↕`; // Add sort indicator
@@ -72,33 +72,65 @@ export function generateTable(tableId, data) {
     data.rows.forEach((row) => {
         const tr = document.createElement("tr");
 
-        Object.values(row).forEach((cell) => {
+        // Create cells in the order defined by headers
+        data.headers.forEach(header => {
             const td = document.createElement("td");
 
-            if (typeof cell === "string") {
-                td.textContent = cell;
-            } else if (cell.src !== undefined) {
-                if (cell.src) {
+            if (header === "") {
+                // Logo column
+                if (row.logo && row.logo.src) {
                     const img = document.createElement("img");
-                    img.src = cell.src;
-                    img.alt = cell.alt;
+                    img.src = row.logo.src;
+                    img.alt = row.logo.alt || "";
                     img.classList.add("logo");
                     td.appendChild(img);
                 }
-            } else if (cell.link) {
-                const a = document.createElement("a");
-                a.href = cell.link;
-                a.textContent = cell.text;
-                td.appendChild(a);
-
-                if (cell.external) {
-                    const span = document.createElement("span");
-                    span.classList.add("external-link");
-                    span.textContent = "(Substack)";
-                    td.appendChild(span);
+            } else if (header === "Company") {
+                if (row.company) {
+                    if (row.company.link) {
+                        const a = document.createElement("a");
+                        a.href = row.company.link;
+                        a.textContent = row.company.text;
+                        td.appendChild(a);
+                    } else {
+                        td.textContent = row.company.text;
+                    }
                 }
-            } else if (cell.text) {
-                td.textContent = cell.text;
+            } else if (header === "Coffee") {
+                if (row.coffee) {
+                    if (row.coffee.link) {
+                        const a = document.createElement("a");
+                        a.href = row.coffee.link;
+                        a.textContent = row.coffee.text;
+                        td.appendChild(a);
+                    } else {
+                        td.textContent = row.coffee.text;
+                    }
+                }
+            } else if (header === "Tier") {
+                td.textContent = row.tier || "";
+            } else if (header === "Date Added") {
+                td.textContent = row.dateAdded || "";
+            } else if (header === "Title") {
+                if (row.title) {
+                    if (row.title.link) {
+                        const a = document.createElement("a");
+                        a.href = row.title.link;
+                        a.textContent = row.title.text;
+                        td.appendChild(a);
+                        if (row.title.external) {
+                            const span = document.createElement("span");
+                            span.classList.add("external-link");
+                            span.textContent = "(Substack)";
+                            td.appendChild(span);
+                        }
+                    } else {
+                        td.textContent = row.title.text;
+                    }
+                }
+            } else {
+                // Handle other simple fields (Publication, Year, Date)
+                td.textContent = row[header.toLowerCase()] || "";
             }
 
             tr.appendChild(td);

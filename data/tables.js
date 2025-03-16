@@ -1,8 +1,9 @@
 export const tableData = {
     coffee: {
-        headers: ["", "Company", "Coffee"],
+        headers: ["Tier", "", "Company", "Coffee", "Date Added"],
         rows: [
             {
+                tier: "S",
                 logo: {
                     src: "https://m.media-amazon.com/images/S/stores-image-uploads-na-prod/f/AmazonStores/ATVPDKIKX0DER/75c0cf8248ab467972782dcfb5c16a55.w1500.h1500._RO749,1,0,0,0,0,0,0,0,0,15_FMpng_.jpg",
                     alt: "Counter Culture Coffee logo",
@@ -15,6 +16,7 @@ export const tableData = {
                     text: "Apollo",
                     link: "https://amzn.to/4hSfsd1",
                 },
+                dateAdded: "2025-01-01",
             },
             {
                 logo: {
@@ -29,6 +31,8 @@ export const tableData = {
                     text: "Tigerwalk Espresso",
                     link: "https://amzn.to/3Qb0aEf",
                 },
+                tier: "A",
+                dateAdded: "2025-01-01",
             },
             {
                 logo: {
@@ -41,6 +45,8 @@ export const tableData = {
                 coffee: {
                     text: "Pillow Fight Espresso",
                 },
+                tier: "A",
+                dateAdded: "2025-01-01",
             },
             {
                 logo: {
@@ -55,6 +61,8 @@ export const tableData = {
                     text: "Black Cat Espresso",
                     link: "https://amzn.to/4h8aA2D",
                 },
+                tier: "A",
+                dateAdded: "2025-01-01",
             },
             {
                 logo: {
@@ -67,6 +75,8 @@ export const tableData = {
                 coffee: {
                     text: "Espresso",
                 },
+                tier: "A",
+                dateAdded: "2025-01-01",
             },
             {
                 logo: {
@@ -81,6 +91,8 @@ export const tableData = {
                     text: "Classico",
                     link: "https://amzn.to/3WTcNrq",
                 },
+                tier: "B",
+                dateAdded: "2025-01-01",
             },
             {
                 logo: {
@@ -95,6 +107,8 @@ export const tableData = {
                     text: "Decaf",
                     link: "https://amzn.to/42P775t",
                 },
+                tier: "B",
+                dateAdded: "2025-01-01",
             },
             {
                 logo: {
@@ -109,6 +123,8 @@ export const tableData = {
                     text: "Dark Italian Espresso",
                     link: "https://amzn.to/3FgZsDm",
                 },
+                tier: "D",
+                dateAdded: "2025-03-01",
             },
         ],
     },
