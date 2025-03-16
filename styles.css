@@ -71,6 +71,33 @@ td {
   width: 15%;
 }
 
+/* Coffee table column widths - updated for 5 columns */
+#coffeeTable th:nth-child(1),
+#coffeeTable td:nth-child(1) {
+  width: 10%;
+  text-align: center;
+}
+
+#coffeeTable th:nth-child(2),
+#coffeeTable td:nth-child(2) {
+  width: 10%;
+  text-align: center;
+}
+
+#coffeeTable th:nth-child(3),
+#coffeeTable td:nth-child(3) {
+  width: 30%;
+}
+
+#coffeeTable th:nth-child(4),
+#coffeeTable td:nth-child(4) {
+  width: 30%;
+}
+
+#coffeeTable th:nth-child(5),
+#coffeeTable td:nth-child(5) {
+  width: 20%;
+}
 /* Logo specific styles */
 #coffeeTable .logo {
   max-height: 35px;
