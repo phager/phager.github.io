@@ -483,10 +483,7 @@ body > h1 {
     }
 }
 
-.vertical-header.rotated-header {
-    writing-mode: unset;
-    transform: rotate(-90deg);
-    white-space: nowrap;
+.vertical-header {
     vertical-align: middle;
     text-align: center;
     height: 140px;

@@ -59,7 +59,7 @@ class CarryTradeMatrix {
                 forward: 0.0945, // USD per NOK (forward)
             },
         ];
-        this.tabs = ['Unhedged', 'Hedged', 'Forward', 'Example'];
+        this.tabs = ['Unhedged', 'Forward', 'Hedged', 'Example', 'Summary'];
         this.activeTab = 'Unhedged';
         this.render();
     }
@@ -74,8 +74,11 @@ class CarryTradeMatrix {
         const root = document.getElementById('root');
         root.innerHTML = '';
         this.renderTabs(root);
+        this.renderTabExplanation(root);
         if (this.activeTab === 'Example') {
             this.renderExample(root);
+        } else if (this.activeTab === 'Summary') {
+            this.renderSummary(root);
         } else {
             this.renderMatrix(root);
         }
@@ -86,7 +89,7 @@ class CarryTradeMatrix {
         tabsContainer.className = 'tabs';
         this.tabs.forEach(tab => {
             const button = document.createElement('button');
-            button.textContent = tab + (tab !== 'Example' ? ' (%)' : '');
+            button.textContent = tab + ((tab !== 'Example' && tab !== 'Summary') ? ' (%)' : '');
             button.dataset.tab = tab;
             button.className = this.activeTab === tab ? 'active' : '';
             button.addEventListener('click', () => {
@@ -98,13 +101,32 @@ class CarryTradeMatrix {
         root.appendChild(tabsContainer);
     }
 
+    renderTabExplanation(root) {
+        const explanation = document.createElement('div');
+        explanation.className = 'tab-explanation';
+        explanation.style.marginBottom = '1.5em';
+        let text = '';
+        const forwardNote = ' (All forwards are 1-year contracts.)';
+        if (this.activeTab === 'Unhedged') {
+            text = 'Unhedged %: Shows the simple interest rate differential between the two currencies (invest - fund).';
+        } else if (this.activeTab === 'Forward') {
+            text = 'Forward %: Shows the implied forward premium/discount based on current spot and forward rates. This is a data validation tool.' + forwardNote;
+        } else if (this.activeTab === 'Hedged') {
+            text = 'Hedged %: Shows the annualized return of a USD-based carry trade, simulating a US investor funding in one currency, investing in another, and hedging FX risk using forwards. Expressed as a % of initial USD invested.' + forwardNote;
+        } else if (this.activeTab === 'Example') {
+            text = 'Worked Example: Step-by-step calculation of a USD-based FX-hedged carry trade.' + forwardNote;
+        } else if (this.activeTab === 'Summary') {
+            text = 'Summary: Lists each currency and its interest, spot, and forward rates.' + forwardNote;
+        }
+        explanation.textContent = text;
+        root.appendChild(explanation);
+    }
+
     renderMatrix(root) {
         const matrixContainer = document.createElement('div');
         matrixContainer.className = 'matrix-container';
-
         const table = document.createElement('table');
         table.className = 'carry-trade-matrix';
-
         // Header rows
         const thead = document.createElement('thead');
         // First header row: axis label for columns
@@ -118,12 +140,11 @@ class CarryTradeMatrix {
         axisLabelTh.textContent = 'Invest';
         axisRow.appendChild(axisLabelTh);
         thead.appendChild(axisRow);
-
         // Second header row: funding axis label and currency codes
         const headerRow = document.createElement('tr');
         const fundingAxisTh = document.createElement('th');
         fundingAxisTh.scope = 'col';
-        fundingAxisTh.className = 'vertical-header rotated-header';
+        fundingAxisTh.className = 'vertical-header';
         fundingAxisTh.innerHTML = 'Fund';
         headerRow.appendChild(fundingAxisTh);
         this.currencies.forEach(cur => {
@@ -134,7 +155,6 @@ class CarryTradeMatrix {
         });
         thead.appendChild(headerRow);
         table.appendChild(thead);
-
         // Body
         const tbody = document.createElement('tbody');
         this.currencies.forEach(fromCur => {
@@ -148,7 +168,12 @@ class CarryTradeMatrix {
                 if (fromCur.code === toCur.code) {
                     cell.textContent = '-';
                 } else {
-                    const rate = this.calculateCarryTradeRate(fromCur, toCur);
+                    let rate;
+                    if (this.activeTab === 'Hedged') {
+                        rate = this.calculateUsdBasedCarryTradeRate(fromCur, toCur);
+                    } else {
+                        rate = this.calculateCarryTradeRate(fromCur, toCur);
+                    }
                     cell.textContent = rate.toFixed(2);
                     cell.className = rate > 0 ? 'positive' : 'negative';
                 }
@@ -192,6 +217,27 @@ class CarryTradeMatrix {
         return 0;
     }
 
+    calculateUsdBasedCarryTradeRate(fromCur, toCur) {
+        // Simulate a USD-based carry trade, hedged with forwards
+        const initialUSD = 10000;
+        // Step 1: Convert USD to funding currency at spot
+        const fundAmount = initialUSD / fromCur.spot;
+        // Step 2: Convert funding currency to invest currency at cross spot
+        const investAmount = fundAmount * (fromCur.spot / toCur.spot);
+        // Step 3: Invest at invest rate
+        const investInterest = investAmount * (toCur.interest / 100);
+        const totalInvest = investAmount + investInterest;
+        // Step 4: Convert invest currency to USD at forward
+        const proceedsUSD = totalInvest * toCur.forward;
+        // Step 5: Repay funding loan + interest at forward
+        const fundInterest = fundAmount * (fromCur.interest / 100);
+        const totalFundOwed = fundAmount + fundInterest;
+        const fundRepaymentUSD = totalFundOwed * fromCur.forward;
+        // Step 6: Net profit as % of initial USD
+        const netProfit = proceedsUSD - fundRepaymentUSD;
+        return (netProfit / initialUSD) * 100;
+    }
+
     renderExample(root) {
         // Example: CHF -> NOK, FX-hedged, $10,000 USD
         const initialUSD = 10000;
@@ -200,7 +246,7 @@ class CarryTradeMatrix {
         // Step 1: Borrow CHF equivalent to $10,000
         const chfBorrowed = initialUSD / chf.spot;
         // Step 2: Convert CHF to NOK at spot
-        const nokReceived = chfBorrowed * (nok.spot / chf.spot);
+        const nokReceived = chfBorrowed * (chf.spot / nok.spot);
         // Step 3: Invest NOK at 4.50%
         const nokInterestEarned = nokReceived * (nok.interest / 100);
         const totalNokReceived = nokReceived + nokInterestEarned;
@@ -252,6 +298,48 @@ class CarryTradeMatrix {
             </div>
         `;
         root.appendChild(container);
+    }
+
+    renderSummary(root) {
+        const container = document.createElement('div');
+        container.className = 'currency-summary';
+        const table = document.createElement('table');
+        table.className = 'currency-summary-table';
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        ['Currency', 'Interest', 'Spot (USD/X)', 'Forward (USD/X)', 'Spot (X/USD)', 'Forward (X/USD)'].forEach(h => {
+            const th = document.createElement('th');
+            th.textContent = h;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+        const tbody = document.createElement('tbody');
+        this.currencies.forEach(cur => {
+            const row = document.createElement('tr');
+            row.appendChild(this._td(cur.code));
+            row.appendChild(this._td(cur.interest.toFixed(2)));
+            row.appendChild(this._td(cur.spot.toFixed(4)));
+            row.appendChild(this._td(cur.forward.toFixed(4)));
+            // Inverse quotes (X/USD)
+            if (cur.code === 'USD') {
+                row.appendChild(this._td('-'));
+                row.appendChild(this._td('-'));
+            } else {
+                row.appendChild(this._td((1/cur.spot).toFixed(4)));
+                row.appendChild(this._td((1/cur.forward).toFixed(4)));
+            }
+            tbody.appendChild(row);
+        });
+        table.appendChild(tbody);
+        container.appendChild(table);
+        root.appendChild(container);
+    }
+
+    _td(val) {
+        const td = document.createElement('td');
+        td.textContent = val;
+        return td;
     }
 }
 
