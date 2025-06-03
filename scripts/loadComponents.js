@@ -13,7 +13,7 @@ export async function loadHeader(page = "") {
 
 // Add this to your loadComponents.js file
 export async function loadNavigation(activePage) {
-    const response = await fetch("/components/navigation.html");
+    const response = await fetch(`/components/navigation.html?v=${Date.now()}`);
     let html = await response.text();
 
     // Set active class on the current page's link
