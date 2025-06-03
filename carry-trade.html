@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Carry Trade Matrix - Paul Hager</title>
+    <style>
+        .content {
+            opacity: 0;
+            transition: opacity 0.2s ease-in;
+        }
+
+        .content.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div id="nav-placeholder"></div>
+        <div id="root"></div>
+    </div>
+
+    <script type="module">
+        (async () => {
+            const { loadHeader, loadNavigation, loadSocialLinks } = await import("./scripts/loadComponents.js");
+            // Load header first
+            await loadHeader();
+            // Then load other components
+            await Promise.all([loadNavigation("carry-trade"), loadSocialLinks()]);
+            // Show content when everything is loaded
+            document.querySelector(".content").classList.add("loaded");
+        })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
