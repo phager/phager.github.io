@@ -59,8 +59,8 @@ class CarryTradeMatrix {
                 forward: 0.0945, // USD per NOK (forward)
             },
         ];
-        this.tabs = ["Unhedged", "Forward", "Hedged", "Example", "Summary", "Extremes"];
-        this.activeTab = "Unhedged";
+        this.tabs = ["Summary", "Unhedged", "Forward", "Hedged", "Extremes", "Example"];
+        this.activeTab = "Summary";
         this.render();
     }
 
