@@ -2,10 +2,7 @@
   "name": "phager.github.io",
   "version": "1.0.0",
   "description": "",
-  "main": "scripts.js",
-  "directories": {
-    "test": "tests"
-  },
+  "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "dev": "vite",
@@ -37,6 +34,5 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "type": "module"
+  }
 }
