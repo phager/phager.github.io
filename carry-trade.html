@@ -28,6 +28,7 @@
                 loadNavigation,
                 loadSocialLinks,
             } from "./scripts/loadComponents.js";
+            import { CarryTradeMatrix } from "./scripts/carryTradeMatrix.js";
 
             // Load header first
             await loadHeader();
@@ -35,9 +36,11 @@
             // Then load other components
             await Promise.all([loadNavigation("carry-trade"), loadSocialLinks()]);
 
+            // Initialize the carry trade matrix
+            new CarryTradeMatrix();
+
             // Show content when everything is loaded
             document.querySelector(".content").classList.add("loaded");
         </script>
-        <script src="scripts/carryTradeMatrix.js"></script>
     </body>
 </html>
