@@ -11,6 +11,7 @@ export default defineConfig({
         main: 'carry-trade.html',
       },
     },
+    assetsDir: 'assets',
   },
   server: {
     port: 3000,
