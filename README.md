@@ -23,3 +23,7 @@ npm test
 ```
 
 This will run Jest tests for table generation and sorting functionality.
+
+## Dependencies
+
+- [Alpha Vantage](https://www.alphavantage.co/documentation/#fx)

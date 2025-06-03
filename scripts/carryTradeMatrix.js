@@ -1,19 +1,80 @@
 import { DOMUtils } from "./domUtils.js";
 import { CurrencyCalculator } from "./currencyCalculator.js";
-import { CURRENCIES, TABS, TAB_EXPLANATIONS } from "./currencyConfig.js";
+import { getCurrencies, TABS, TAB_EXPLANATIONS, API_CONFIG } from "./currencyConfig.js";
 
 export class CarryTradeMatrix {
     constructor() {
-        this.currencies = CURRENCIES;
+        this.currencies = [];
         this.tabs = TABS;
         this.activeTab = "Summary";
-        this.render();
+        this.initialize();
     }
 
-    // Placeholder for future API integration
+    async initialize() {
+        try {
+            await this.fetchRatesFromAPI();
+            this.render();
+        } catch (error) {
+            console.error("Failed to initialize:", error);
+            // Show error message to user
+            const root = document.getElementById("root");
+            root.innerHTML =
+                '<div class="error">Failed to load currency data. Please try again later.</div>';
+        }
+    }
+
     async fetchRatesFromAPI() {
-        // Example: fetch rates and update this.currencies
-        // await fetch('...');
+        try {
+            // Fetch spot rates from Alpha Vantage
+            const spotRates = {};
+            for (const currency of API_CONFIG.CURRENCIES) {
+                if (currency === "USD") continue;
+
+                const response = await fetch(
+                    `${API_CONFIG.BASE_URL}?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=${currency}&apikey=${API_CONFIG.ALPHA_VANTAGE_API_KEY}`,
+                );
+                const data = await response.json();
+
+                if (data["Realtime Currency Exchange Rate"]) {
+                    let rate = parseFloat(
+                        data["Realtime Currency Exchange Rate"]["5. Exchange Rate"],
+                    );
+                    // --- Normalize all rates to USD/X ---
+                    // Alpha Vantage returns USD/JPY (market convention), which is correct for us.
+                    // If you ever fetch X/USD, invert it here. For now, all are USD/X.
+                    // If you add a currency where the API returns X/USD, use: rate = 1 / rate;
+                    spotRates[currency] = rate;
+                }
+            }
+
+            // Get base currency data
+            const baseCurrencies = await getCurrencies();
+
+            // Update spot rates with real data
+            this.currencies = baseCurrencies.map((currency) => {
+                if (currency.code === "USD") {
+                    return currency;
+                }
+                return {
+                    ...currency,
+                    spot: spotRates[currency.code] || currency.spot,
+                    // Forward rates would need a separate API call to get 1-year forward rates
+                    // For now, we'll use the existing forward rates
+                };
+            });
+
+            // Update last updated timestamp
+            const lastUpdated = document.getElementById("last-updated");
+            if (lastUpdated) {
+                lastUpdated.textContent = `Last updated: ${new Date().toLocaleString()}`;
+            }
+
+            // Schedule next update in 5 minutes
+            setTimeout(() => this.fetchRatesFromAPI(), 5 * 60 * 1000);
+        } catch (error) {
+            console.error("Error fetching rates:", error);
+            throw error;
+        }
     }
 
     render() {

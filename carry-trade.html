@@ -4,6 +4,27 @@
         <title>Carry Trade Matrix</title>
         <link rel="stylesheet" href="styles.css" />
         <meta charset="UTF-8" />
+        <style>
+            .loading {
+                text-align: center;
+                padding: 2rem;
+                color: #666;
+            }
+            .error {
+                text-align: center;
+                padding: 2rem;
+                color: #c62828;
+                background-color: #ffebee;
+                border-radius: 4px;
+                margin: 1rem 0;
+            }
+            .last-updated {
+                text-align: right;
+                color: #666;
+                font-size: 0.9rem;
+                margin-top: 1rem;
+            }
+        </style>
     </head>
     <body>
         <div class="content">
@@ -15,9 +36,13 @@
                 loss. The rows are the funding currencies (short/sold) and the columns are the
                 investment currencies (long/bought).
             </p>
-            <div id="root"></div>
+            <div id="root">
+                <div class="loading">Loading currency data...</div>
+            </div>
+            <div id="last-updated" class="last-updated"></div>
             <div class="disclaimer">
                 Disclaimer: This is for informational purposes only and is not investment advice.
+                Data is updated every 5 minutes from Alpha Vantage.
             </div>
             <div id="social-links-placeholder"></div>
         </div>
