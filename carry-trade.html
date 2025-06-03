@@ -12,6 +12,49 @@
         .content.loaded {
             opacity: 1;
         }
+
+        .tabs {
+            margin-bottom: 20px;
+        }
+
+        .tabs button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            background: #f0f0f0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .tabs button.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .carry-trade-matrix {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .carry-trade-matrix th,
+        .carry-trade-matrix td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .carry-trade-matrix th {
+            background-color: #f5f5f5;
+        }
+
+        .carry-trade-matrix td.positive {
+            color: green;
+        }
+
+        .carry-trade-matrix td.negative {
+            color: red;
+        }
     </style>
 </head>
 
@@ -32,7 +75,7 @@
             document.querySelector(".content").classList.add("loaded");
         })();
     </script>
-    <script type="module" src="./src/main.tsx"></script>
+    <script src="./scripts/carryTradeMatrix.js"></script>
 </body>
 
 </html>
