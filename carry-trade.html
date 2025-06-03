@@ -3,8 +3,7 @@
     <head>
         <title>Carry Trade Matrix</title>
         <link rel="stylesheet" href="styles.css">
-        </link>
-        </head>
+    </head>
     <body>
         <div class="content">
             <div id="nav-placeholder"></div>
@@ -12,14 +11,14 @@
             <p>This matrix shows the potential returns from currency carry trades. Positive values (green) indicate potential
                 profit, while negative values (red) indicate potential loss.</p>
             <div id="root"></div>
-            </div>
+        </div>
 
         <script type="module">
-                                import {
-                                    loadHeader,
-                                    loadNavigation,
-                                    loadSocialLinks,
-                                } from "./scripts/loadComponents.js";
+                    import {
+                        loadHeader,
+                        loadNavigation,
+                        loadSocialLinks,
+                    } from "./scripts/loadComponents.js";
 
             // Load header first
             await loadHeader();
@@ -28,8 +27,8 @@
             await Promise.all([loadNavigation("carry-trade"), loadSocialLinks()]);
 
             // Show content when everything is loaded
-                                document.querySelector(".content").classList.add("loaded");
-</script>
+                    document.querySelector(".content").classList.add("loaded");
+                </script>
         <script src="scripts/carryTradeMatrix.js"></script>
-        </body>
+    </body>
 </html>
