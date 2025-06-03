@@ -26,4 +26,4 @@ This will run Jest tests for table generation and sorting functionality.
 
 ## Dependencies
 
-- [Alpha Vantage](https://www.alphavantage.co/documentation/#fx)
+- [Alpha Vantage](https://www.alphavantage.co/documentation/#fx) ![Alpha Vantage Logo](https://www.alphavantage.co/logo.png/)
