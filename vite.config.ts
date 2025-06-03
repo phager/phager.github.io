@@ -6,5 +6,8 @@ export default defineConfig({
     modulePreload: {
       polyfill: true
     }
+  },
+  define: {
+    'process.env': process.env
   }
 }) 

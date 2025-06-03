@@ -1,6 +1,6 @@
 // API Configuration
 export const API_CONFIG = {
-    ALPHA_VANTAGE_API_KEY: process.env.ALPHA_VANTAGE_API_KEY,
+    ALPHA_VANTAGE_API_KEY: process.env?.ALPHA_VANTAGE_API_KEY || "YOUR_API_KEY_HERE",
     BASE_URL: "https://www.alphavantage.co/query",
     CURRENCIES: ["USD", "EUR", "JPY", "GBP", "CHF", "CAD", "AUD", "NOK"],
 };
