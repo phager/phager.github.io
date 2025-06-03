@@ -59,7 +59,7 @@ class CarryTradeMatrix {
                 forward: 0.0945, // USD per NOK (forward)
             },
         ];
-        this.tabs = ['Unhedged', 'Forward', 'Hedged', 'Example', 'Summary'];
+        this.tabs = ['Unhedged', 'Forward', 'Hedged', 'Example', 'Summary', 'Extremes'];
         this.activeTab = 'Unhedged';
         this.render();
     }
@@ -79,6 +79,8 @@ class CarryTradeMatrix {
             this.renderExample(root);
         } else if (this.activeTab === 'Summary') {
             this.renderSummary(root);
+        } else if (this.activeTab === 'Extremes') {
+            this.renderExtremes(root);
         } else {
             this.renderMatrix(root);
         }
@@ -89,7 +91,7 @@ class CarryTradeMatrix {
         tabsContainer.className = 'tabs';
         this.tabs.forEach(tab => {
             const button = document.createElement('button');
-            button.textContent = tab + ((tab !== 'Example' && tab !== 'Summary') ? ' (%)' : '');
+            button.textContent = tab + ((tab !== 'Example' && tab !== 'Summary' && tab !== 'Extremes') ? ' (%)' : '');
             button.dataset.tab = tab;
             button.className = this.activeTab === tab ? 'active' : '';
             button.addEventListener('click', () => {
@@ -117,6 +119,8 @@ class CarryTradeMatrix {
             text = 'Worked Example: Step-by-step calculation of a USD-based FX-hedged carry trade.' + forwardNote;
         } else if (this.activeTab === 'Summary') {
             text = 'Summary: Lists each currency and its interest, spot, and forward rates.' + forwardNote;
+        } else if (this.activeTab === 'Extremes') {
+            text = 'Top/Bottom: Shows the 5 best and 5 worst performing currency pairs based on hedged carry trade returns.';
         }
         explanation.textContent = text;
         root.appendChild(explanation);
@@ -307,7 +311,7 @@ class CarryTradeMatrix {
         table.className = 'currency-summary-table';
         const thead = document.createElement('thead');
         const headerRow = document.createElement('tr');
-        ['Currency', 'Interest', 'Spot (USD/X)', 'Forward (USD/X)', 'Spot (X/USD)', 'Forward (X/USD)'].forEach(h => {
+        ['Currency', 'Interest (%)', 'Spot (USD/X)', 'Forward (USD/X)', 'Spot (X/USD)', 'Forward (X/USD)'].forEach(h => {
             const th = document.createElement('th');
             th.textContent = h;
             headerRow.appendChild(th);
@@ -331,6 +335,80 @@ class CarryTradeMatrix {
             }
             tbody.appendChild(row);
         });
+        table.appendChild(tbody);
+        container.appendChild(table);
+        root.appendChild(container);
+    }
+
+    renderExtremes(root) {
+        const container = document.createElement('div');
+        container.className = 'top-bottom-container';
+        
+        // Calculate all pairs and their returns
+        const pairs = [];
+        this.currencies.forEach(fromCur => {
+            this.currencies.forEach(toCur => {
+                if (fromCur.code !== toCur.code) {
+                    const rate = this.calculateUsdBasedCarryTradeRate(fromCur, toCur);
+                    pairs.push({
+                        from: fromCur.code,
+                        to: toCur.code,
+                        rate: rate
+                    });
+                }
+            });
+        });
+
+        // Sort pairs by rate
+        pairs.sort((a, b) => b.rate - a.rate);
+
+        // Create table
+        const table = document.createElement('table');
+        table.className = 'top-bottom-table';
+        
+        // Header
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        ['Rank', 'Pair', 'Return (%)'].forEach(h => {
+            const th = document.createElement('th');
+            th.textContent = h;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        // Body
+        const tbody = document.createElement('tbody');
+        
+        // Top 5
+        for (let i = 0; i < 5; i++) {
+            const row = document.createElement('tr');
+            row.appendChild(this._td((i + 1).toString()));
+            row.appendChild(this._td(`${pairs[i].from} / ${pairs[i].to}`));
+            const rateCell = this._td(pairs[i].rate.toFixed(2));
+            rateCell.className = 'positive';
+            row.appendChild(rateCell);
+            tbody.appendChild(row);
+        }
+
+        // Ellipsis row
+        const ellipsisRow = document.createElement('tr');
+        ellipsisRow.appendChild(this._td('...'));
+        ellipsisRow.appendChild(this._td('...'));
+        ellipsisRow.appendChild(this._td('...'));
+        tbody.appendChild(ellipsisRow);
+
+        // Bottom 5
+        for (let i = pairs.length - 5; i < pairs.length; i++) {
+            const row = document.createElement('tr');
+            row.appendChild(this._td((i + 1).toString()));
+            row.appendChild(this._td(`${pairs[i].from} / ${pairs[i].to}`));
+            const rateCell = this._td(pairs[i].rate.toFixed(2));
+            rateCell.className = 'negative';
+            row.appendChild(rateCell);
+            tbody.appendChild(row);
+        }
+
         table.appendChild(tbody);
         container.appendChild(table);
         root.appendChild(container);
