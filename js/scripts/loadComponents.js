@@ -1,11 +1,11 @@
 export async function loadHeader(page = "") {
-    const response = await fetch("/components/header.html");
+    const response = await fetch(`/components/header.html?v=${Date.now()}`);
     const html = await response.text();
     document.head.innerHTML = html;
 
     if (page === "coffee") {
         const script = document.createElement("script");
-        script.src = "scripts.js";
+        script.src = "/js/scripts.js";
         script.defer = true;
         document.head.appendChild(script);
     }
@@ -22,22 +22,22 @@ export async function loadNavigation(activePage) {
     const navPlaceholder = document.getElementById("nav-placeholder");
     if (navPlaceholder) {
         navPlaceholder.outerHTML = html;
-        
+
         // Add mobile menu functionality
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
+        const navToggle = document.querySelector(".nav-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+
         if (navToggle && navMenu) {
-            navToggle.addEventListener('click', () => {
-                navToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
+            navToggle.addEventListener("click", () => {
+                navToggle.classList.toggle("active");
+                navMenu.classList.toggle("active");
             });
 
             // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
+            document.addEventListener("click", (e) => {
                 if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                    navToggle.classList.remove('active');
-                    navMenu.classList.remove('active');
+                    navToggle.classList.remove("active");
+                    navMenu.classList.remove("active");
                 }
             });
         }
@@ -49,4 +49,3 @@ export async function loadSocialLinks() {
     const text = await response.text();
     document.getElementById("social-links-placeholder").innerHTML = text;
 }
-

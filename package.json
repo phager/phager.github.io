@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && cpx 'components/**/*' dist/components && cpx 'css/**/*' dist/css && cpx 'js/**/*' dist/js && cpx 'pages/**/*' dist/pages && cpx 'index.html' dist && cpx 'favicon.ico' dist && cpx 'images/**/*' dist/images",
     "preview": "vite preview"
   },
   "repository": {
@@ -25,6 +25,7 @@
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
+    "cpx": "^1.5.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.5.3",

@@ -1,12 +1,14 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="stylesheet" href="/css/styles.css" />
+        <script type="module" src="/js/scripts.js"></script>
         <style>
             .content {
                 opacity: 0;
                 transition: opacity 0.2s ease-in;
             }
-    
+
             .content.loaded {
                 opacity: 1;
             }
@@ -28,9 +30,9 @@
                 loadHeader,
                 loadNavigation,
                 loadSocialLinks,
-            } from "./scripts/loadComponents.js";
-            import { tableData } from "./data/tables.js";
-            import { generateTable } from "./scripts/tableGenerator.js";
+            } from "/js/scripts/loadComponents.js";
+            import { tableData } from "/pages/data/tables.js";
+            import { generateTable } from "/js/scripts/tableGenerator.js";
 
             // Load header first
             await loadHeader("coffee");

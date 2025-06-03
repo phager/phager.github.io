@@ -1,12 +1,13 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="stylesheet" href="/css/styles.css" />
         <style>
             .content {
                 opacity: 0;
                 transition: opacity 0.2s ease-in;
             }
-    
+
             .content.loaded {
                 opacity: 1;
             }
@@ -26,8 +27,8 @@
                     <p>Hi, I'm Paul Hager</p>
 
                     <p>
-                        Check out my <a href="coffee.html">coffee preferences</a> to see what I'm
-                        currently enjoying. I also have a keen interest in flag design.
+                        Check out my <a href="/pages/coffee.html">coffee preferences</a> to see what
+                        I'm currently enjoying. I also have a keen interest in flag design.
                     </p>
                 </div>
 
@@ -35,12 +36,13 @@
             </div>
         </div>
 
+        <script type="module" src="/js/scripts.js"></script>
         <script type="module">
             import {
                 loadHeader,
                 loadNavigation,
                 loadSocialLinks,
-            } from "./scripts/loadComponents.js";
+            } from "/js/scripts/loadComponents.js";
 
             // Load header first
             await loadHeader();

@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Carry Trade Matrix</title>
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="../css/styles.css" />
+        <script src="../js/scripts.js"></script>
         <meta charset="UTF-8" />
         <style>
             .loading {
@@ -45,6 +46,7 @@
                 Data is updated every 5 minutes from Alpha Vantage.
             </div>
             <div id="social-links-placeholder"></div>
+            <a href="../index.html">About</a>
         </div>
 
         <script type="module">
@@ -52,8 +54,8 @@
                 loadHeader,
                 loadNavigation,
                 loadSocialLinks,
-            } from "./scripts/loadComponents.js";
-            import { CarryTradeMatrix } from "./scripts/carryTradeMatrix.js";
+            } from "../js/scripts/loadComponents.js";
+            import { CarryTradeMatrix } from "../js/scripts/carryTradeMatrix.js";
 
             // Load header first
             await loadHeader();

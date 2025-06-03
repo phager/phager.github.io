@@ -1,12 +1,14 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="stylesheet" href="../css/styles.css" />
+        <script src="../js/scripts.js"></script>
         <style>
             .content {
                 opacity: 0;
                 transition: opacity 0.2s ease-in;
             }
-    
+
             .content.loaded {
                 opacity: 1;
             }
@@ -20,6 +22,11 @@
 
             <table id="researchTable"></table>
             <div id="social-links-placeholder"></div>
+
+            <a href="blog.html">Blog</a>
+            <a href="coffee.html">Coffee</a>
+            <a href="carry-trade.html">Carry Trade</a>
+            <a href="../index.html">About</a>
         </div>
 
         <script type="module">
@@ -27,9 +34,9 @@
                 loadHeader,
                 loadNavigation,
                 loadSocialLinks,
-            } from "./scripts/loadComponents.js";
+            } from "../js/scripts/loadComponents.js";
             import { tableData } from "./data/tables.js";
-            import { generateTable } from "./scripts/tableGenerator.js";
+            import { generateTable } from "../js/scripts/tableGenerator.js";
 
             // Load header first
             await loadHeader();
