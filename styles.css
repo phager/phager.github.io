@@ -482,3 +482,15 @@ body > h1 {
         font-size: 12px;
     }
 }
+
+.vertical-header.rotated-header {
+    writing-mode: unset;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    height: 140px;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+}

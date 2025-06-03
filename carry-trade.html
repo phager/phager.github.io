@@ -2,24 +2,32 @@
 <html>
     <head>
         <title>Carry Trade Matrix</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles.css" />
+        <meta charset="UTF-8" />
     </head>
     <body>
         <div class="content">
             <div id="nav-placeholder"></div>
             <h1>Carry Trade Matrix</h1>
-            <p>This matrix shows the potential returns from currency carry trades. Positive values (green) indicate potential
-                profit, while negative values (red) indicate potential loss.</p>
+            <p>
+                This matrix shows the potential returns from currency carry trades. Positive values
+                (green) indicate potential profit, while negative values (red) indicate potential
+                loss. The rows are the funding currencies (short/sold) and the columns are the
+                investment currencies (long/bought).
+            </p>
             <div id="root"></div>
+            <div class="disclaimer">
+                Disclaimer: This is for informational purposes only and is not investment advice.
+            </div>
             <div id="social-links-placeholder"></div>
         </div>
 
         <script type="module">
-                    import {
-                        loadHeader,
-                        loadNavigation,
-                        loadSocialLinks,
-                    } from "./scripts/loadComponents.js";
+            import {
+                loadHeader,
+                loadNavigation,
+                loadSocialLinks,
+            } from "./scripts/loadComponents.js";
 
             // Load header first
             await loadHeader();
@@ -28,8 +36,8 @@
             await Promise.all([loadNavigation("carry-trade"), loadSocialLinks()]);
 
             // Show content when everything is loaded
-                    document.querySelector(".content").classList.add("loaded");
-                </script>
+            document.querySelector(".content").classList.add("loaded");
+        </script>
         <script src="scripts/carryTradeMatrix.js"></script>
     </body>
 </html>
