@@ -69,6 +69,5 @@ export const TAB_EXPLANATIONS = {
         "Worked Example: Step-by-step calculation of a USD-based FX-hedged carry trade. (All forwards are 1-year contracts.)",
     Summary:
         "Summary: Lists each currency and its interest, spot, and forward rates. (All forwards are 1-year contracts.)",
-    Extremes:
-        "Top/Bottom: Shows the 5 best and 5 worst performing currency pairs based on hedged carry trade returns.",
+    Extremes: "Extremes: Shows the currency pairs based on hedged carry trade returns.",
 };

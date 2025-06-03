@@ -157,14 +157,19 @@ export class CarryTradeMatrix {
 
     renderExtremes(root) {
         const pairs = [];
-        this.currencies.forEach((fromCur) => {
-            this.currencies.forEach((toCur) => {
-                if (fromCur.code !== toCur.code) {
-                    const rate = CurrencyCalculator.calculateUsdBasedCarryTradeRate(fromCur, toCur);
+        // Create all possible pairs and keep only the positive return version
+        for (let i = 0; i < this.currencies.length; i++) {
+            for (let j = 0; j < this.currencies.length; j++) {
+                if (i === j) continue; // Skip same currency pairs
+                const fromCur = this.currencies[i];
+                const toCur = this.currencies[j];
+                const rate = CurrencyCalculator.calculateUsdBasedCarryTradeRate(fromCur, toCur);
+                // Only add the pair if it has a positive return
+                if (rate > 0) {
                     pairs.push({ from: fromCur.code, to: toCur.code, rate });
                 }
-            });
-        });
+            }
+        }
 
         pairs.sort((a, b) => b.rate - a.rate);
 
@@ -178,32 +183,19 @@ export class CarryTradeMatrix {
             ),
         );
 
-        // Top 5
-        for (let i = 0; i < 5; i++) {
+        // All pairs
+        pairs.forEach((pair, index) => {
             tbody.appendChild(
                 DOMUtils.createTableRow([
-                    { text: (i + 1).toString() },
-                    { text: `${pairs[i].from} / ${pairs[i].to}` },
-                    { text: pairs[i].rate.toFixed(2), className: "positive" },
+                    { text: (index + 1).toString() },
+                    { text: `${pair.from} / ${pair.to}` },
+                    {
+                        text: pair.rate.toFixed(2),
+                        className: "positive",
+                    },
                 ]),
             );
-        }
-
-        // Ellipsis
-        tbody.appendChild(
-            DOMUtils.createTableRow([{ text: "..." }, { text: "..." }, { text: "..." }]),
-        );
-
-        // Bottom 5
-        for (let i = pairs.length - 5; i < pairs.length; i++) {
-            tbody.appendChild(
-                DOMUtils.createTableRow([
-                    { text: (i + 1).toString() },
-                    { text: `${pairs[i].from} / ${pairs[i].to}` },
-                    { text: pairs[i].rate.toFixed(2), className: "negative" },
-                ]),
-            );
-        }
+        });
 
         root.appendChild(table);
     }
