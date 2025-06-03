@@ -3,8 +3,13 @@
 ## Development
 
 To run the site locally:
+
 ```
 python -m http.server 8000
+```
+
+```
+npm run dev
 ```
 
 Then visit [http://localhost:8000](http://localhost:8000) in your browser.
@@ -12,6 +17,7 @@ Then visit [http://localhost:8000](http://localhost:8000) in your browser.
 ## Testing
 
 Run the test suite with:
+
 ```
 npm test
 ```
