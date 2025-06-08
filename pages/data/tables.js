@@ -36,6 +36,22 @@ export const tableData = {
             },
             {
                 logo: {
+                    src: "https://www.reveillecoffee.com/cdn/shop/files/gmailcompanylogo.png?v=1633462119",
+                    alt: "Reveille Coffee logo",
+                },
+                company: {
+                    text: "Reveille Coffee",
+                    link: "https://www.reveillecoffee.com/collections/all",
+                },
+                coffee: {
+                    text: "Paradise Espresso",
+                    link: "https://www.reveillecoffee.com/products/ethiopia",
+                },
+                tier: "A",
+                dateAdded: "2025-06-07",
+            },
+            {
+                logo: {
                     src: "https://cdn.shopify.com/s/files/1/0784/4271/files/smallpng.png",
                     alt: "Wrecking Ball Coffee logo",
                 },
