@@ -1,5 +1,9 @@
 # [phager.github.io](https://phager.github.io)
 
+## About
+
+This repository contains bits
+
 ## Development
 
 To run the site locally:
