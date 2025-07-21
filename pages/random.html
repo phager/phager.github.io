@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Indexing Portfolio Builder</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/random.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>Direct Indexing Portfolio Builder</h1>
+        <div class="slider-container">
+            <label for="investment-slider">Investment Amount: $<span id="slider-value">500000</span></label>
+            <input type="range" id="investment-slider" min="1" max="1000000" value="500000">
+        </div>
+        <button id="download-portfolio">Download Portfolio (JSON)</button>
+        <div id="portfolio-container"></div>
+    </main>
+    <script src="../js/scripts/loadComponents.js"></script>
+    <script src="../js/scripts/direct-indexing.js"></script>
+</body>
+</html>
