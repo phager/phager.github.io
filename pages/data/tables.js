@@ -1,3 +1,10 @@
+export const companyLogoLookup = {
+    "Saint Frank Coffee": {
+        src: "https://www.saintfrankcoffee.com/cdn/shop/files/floral-flourish-centered.png?v=1728598471&width=400",
+        alt: "Saint Frank Coffee logo",
+    },
+};
+
 export const tableData = {
     coffee: {
         headers: ["Tier", "", "Company", "Coffee", "Date Added"],
@@ -17,6 +24,13 @@ export const tableData = {
                     link: "https://amzn.to/4hSfsd1",
                 },
                 dateAdded: "2025-01-01",
+            },
+            {
+                logo: companyLogoLookup["Saint Frank Coffee"],
+                company: { text: "Saint Frank Coffee" },
+                coffee: {},
+                tier: "S",
+                dateAdded: "2025-07-26",
             },
             {
                 logo: {
@@ -81,17 +95,24 @@ export const tableData = {
                 dateAdded: "2025-01-01",
             },
             {
-                logo: {
-                    src: "https://www.saintfrankcoffee.com/cdn/shop/files/floral-flourish-centered.png?v=1728598471&width=400",
-                    alt: "Saint Frank Coffee logo",
-                },
-                company: {
-                    text: "Saint Frank Coffee",
-                },
+                company: { text: "Stumptown" },
+                coffee: { text: "Founder's" },
+                tier: "A",
+                dateAdded: "2025-07-26",
+            },
+            {
+                company: { text: "Sightglass" },
+                coffee: { text: "Owl's Howl" },
+                tier: "A",
+                dateAdded: "2025-07-26",
+            },
+            {
+                logo: companyLogoLookup["Saint Frank Coffee"],
+                company: { text: "Saint Frank Coffee" },
                 coffee: {
                     text: "Espresso",
                 },
-                tier: "A",
+                tier: "B",
                 dateAdded: "2025-01-01",
             },
             {
