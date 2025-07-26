@@ -43,4 +43,13 @@ describe('calculatePortfolio', () => {
         expect(portfolio.length).toBe(0);
         expect(totalInvestment).toBe(0);
     });
+    test('should handle a small investment with a single stock', () => {
+        const investmentAmount = 1;
+        const stockData = [
+            { "Company": "Test Stock", "Symbol": "TEST", "Weight": "100%", "Price": "10" }
+        ];
+        const { portfolio, totalInvestment } = calculatePortfolio(investmentAmount, stockData);
+        expect(portfolio.length).toBe(0);
+        expect(totalInvestment).toBe(0);
+    });
 });
