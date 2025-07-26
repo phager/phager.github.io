@@ -1,4 +1,4 @@
-import { generateTable } from "../scripts/tableGenerator.js";
+import { generateTable } from "../js/scripts/tableGenerator.js";
 
 describe("Table Generator and Sorting", () => {
     let table;
