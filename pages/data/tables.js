@@ -92,7 +92,7 @@ export const tableData = {
             },
             {
                 logo: {
-                    src: "https://en.wikipedia.org/wiki/File:Stumptown_Coffee_Roasters_logo.jpeg",
+                    src: "https://d250xtg4d8ngkd.cloudfront.net/public/brands/Stumptown-Coffee-Roasters-Logo.webp",
                     alt: "Stumptown Coffee logo",
                 },
                 company: {
