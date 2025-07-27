@@ -27,14 +27,8 @@ export const tableData = {
             },
             {
                 logo: companyLogoLookup["Saint Frank Coffee"],
-                company: {
-                    text: "Saint Frank Coffee",
-                    link: "",
-                },
-                coffee: {
-                    text: "Ninga Hill Natural PB Espresso",
-                    link: "",
-                },
+                company: { text: "Saint Frank Coffee" },
+                coffee: { text: "Ninga Hill Natural PB Espresso" },
                 tier: "S",
                 dateAdded: "2025-07-26",
             },
