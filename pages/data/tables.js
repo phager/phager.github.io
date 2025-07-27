@@ -69,12 +69,8 @@ export const tableData = {
                     src: "https://cdn.shopify.com/s/files/1/0784/4271/files/smallpng.png",
                     alt: "Wrecking Ball Coffee logo",
                 },
-                company: {
-                    text: "Wrecking Ball Coffee Roasters",
-                },
-                coffee: {
-                    text: "Pillow Fight Espresso",
-                },
+                company: { text: "Wrecking Ball Coffee Roasters" },
+                coffee: { text: "Pillow Fight Espresso" },
                 tier: "A",
                 dateAdded: "2025-01-01",
             },
