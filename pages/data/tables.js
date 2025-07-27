@@ -105,16 +105,13 @@ export const tableData = {
             },
             {
                 logo: {
-                    src: "",
+                    src: "https://sightglasscoffee.com/cdn/shop/files/Logo_-_200_x_200_1_190x@2x.png?v=1670283968",
                     alt: "Sightglass Coffee logo",
                 },
-                company: {
-                    text: "Sightglass",
-                    link: "",
-                },
+                company: { text: "Sightglass" },
                 coffee: {
                     text: "Owl's Howl",
-                    link: "",
+                    link: "https://amzn.to/4mlOhJT",
                 },
                 tier: "A",
                 dateAdded: "2025-07-26",
