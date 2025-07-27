@@ -14,6 +14,7 @@ export default tseslint.config(
     languageOptions: {
       ...reactRecommended.languageOptions,
       globals: {
+        ...globals.jest,
         ...globals.browser,
         ...globals.node,
         ...globals.es2021,

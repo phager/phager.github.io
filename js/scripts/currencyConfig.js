@@ -23,7 +23,7 @@ export async function getCurrencies() {
         const response = await fetch(
             `${API_CONFIG.BASE_URL}?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=EUR&apikey=${API_CONFIG.ALPHA_VANTAGE_API_KEY}`,
         );
-        const data = await response.json();
+        await response.json();
 
         // For now, return static data until we implement full API integration
         return [
