@@ -119,7 +119,7 @@ export const tableData = {
             {
                 logo: companyLogoLookup["Saint Frank Coffee"],
                 company: { text: "Saint Frank Coffee" },
-                coffee: { text: "Little Brother Espresso" },
+                coffee: { text: "Little Brother" },
                 tier: "B",
                 dateAdded: "2025-01-01",
             },
