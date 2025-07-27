@@ -71,8 +71,8 @@ export function calculatePortfolio(investmentAmount, stockData) {
             stockToUpdate.investment += stockToUpdate.price;
             remainingCash -= stockToUpdate.price;
             stockBoughtInPass = true;
-        } 
-        
+        }
+
         canStillBuy = stockBoughtInPass;
     }
 
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("download", "direct_indexing_portfolio.json");
-        document.body.appendChild(downloadAnchorNode); 
+        document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
     }

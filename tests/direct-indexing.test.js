@@ -67,7 +67,7 @@ describe('calculatePortfolio', () => {
         //   B: floor(500/120) = 4 shares ($480)
         // Total initial investment: $980. Remaining cash: $20.
         // The greedy algorithm should not buy anything else as the remaining cash is less than any stock price.
-        
+
         const stockA = portfolio.find(s => s.symbol === 'A');
         const stockB = portfolio.find(s => s.symbol === 'B');
 
