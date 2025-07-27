@@ -1,3 +1,10 @@
+export const companyLogoLookup = {
+    "Saint Frank Coffee": {
+        src: "https://www.saintfrankcoffee.com/cdn/shop/files/floral-flourish-centered.png?v=1728598471&width=400",
+        alt: "Saint Frank Coffee logo",
+    },
+};
+
 export const tableData = {
     coffee: {
         headers: ["Tier", "", "Company", "Coffee", "Date Added"],
@@ -17,6 +24,13 @@ export const tableData = {
                     link: "https://amzn.to/4hSfsd1",
                 },
                 dateAdded: "2025-01-01",
+            },
+            {
+                logo: companyLogoLookup["Saint Frank Coffee"],
+                company: { text: "Saint Frank Coffee" },
+                coffee: { text: "Ninga Hill Natural PB Espresso" },
+                tier: "S",
+                dateAdded: "2025-07-26",
             },
             {
                 logo: {
@@ -55,12 +69,8 @@ export const tableData = {
                     src: "https://cdn.shopify.com/s/files/1/0784/4271/files/smallpng.png",
                     alt: "Wrecking Ball Coffee logo",
                 },
-                company: {
-                    text: "Wrecking Ball Coffee Roasters",
-                },
-                coffee: {
-                    text: "Pillow Fight Espresso",
-                },
+                company: { text: "Wrecking Ball Coffee Roasters" },
+                coffee: { text: "Pillow Fight Espresso" },
                 tier: "A",
                 dateAdded: "2025-01-01",
             },
@@ -82,16 +92,35 @@ export const tableData = {
             },
             {
                 logo: {
-                    src: "https://www.saintfrankcoffee.com/cdn/shop/files/floral-flourish-centered.png?v=1728598471&width=400",
-                    alt: "Saint Frank Coffee logo",
+                    src: "https://d250xtg4d8ngkd.cloudfront.net/public/brands/Stumptown-Coffee-Roasters-Logo.webp",
+                    alt: "Stumptown Coffee logo",
                 },
                 company: {
-                    text: "Saint Frank Coffee",
+                    text: "Stumptown",
+                    link: "https://amzn.to/4mlO5u9",
                 },
+                coffee: { text: "Founder's" },
+                tier: "A",
+                dateAdded: "2025-07-26",
+            },
+            {
+                logo: {
+                    src: "https://sightglasscoffee.com/cdn/shop/files/Logo_-_200_x_200_1_190x@2x.png?v=1670283968",
+                    alt: "Sightglass Coffee logo",
+                },
+                company: { text: "Sightglass" },
                 coffee: {
-                    text: "Espresso",
+                    text: "Owl's Howl",
+                    link: "https://amzn.to/4mlOhJT",
                 },
                 tier: "A",
+                dateAdded: "2025-07-26",
+            },
+            {
+                logo: companyLogoLookup["Saint Frank Coffee"],
+                company: { text: "Saint Frank Coffee" },
+                coffee: { text: "Little Brother" },
+                tier: "B",
                 dateAdded: "2025-01-01",
             },
             {
