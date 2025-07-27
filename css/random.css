@@ -29,18 +29,80 @@
     100% { transform: rotate(360deg); }
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+#portfolio-container table {
+    background-color: #6f4e37; /* Coffee brown */
+    color: #fdf6e3; /* Warm cream for text */
+    width: 100%; /* Ensure table takes full width */
+    table-layout: fixed; /* Fix table layout for column widths */
 }
 
-th, td {
-    border: 1px solid #ddd;
+#portfolio-container th,
+#portfolio-container td {
+    border: 1px solid #d2b48c;
     padding: 8px;
     text-align: left;
+    word-wrap: break-word; /* Allow long words to break */
 }
 
-th {
-    background-color: #f2f2f2;
+#portfolio-container th {
+    background-color: #8b4513; /* Saddle brown for headers */
+    color: #fdf6e3;
+}
+
+#portfolio-container tr:hover {
+    background-color: #8b4513; /* Darker brown on hover */
+}
+
+/* Column Widths */
+#portfolio-container th:nth-child(1), /* # */
+#portfolio-container td:nth-child(1) {
+    width: 4%;
+}
+
+#portfolio-container th:nth-child(2), /* Symbol */
+#portfolio-container td:nth-child(2) {
+    width: 8%;
+}
+
+#portfolio-container th:nth-child(3), /* Name */
+#portfolio-container td:nth-child(3) {
+    width: 16%; 
+}
+
+#portfolio-container th:nth-child(4), /* Shares */
+#portfolio-container td:nth-child(4) {
+    width: 7%; 
+}
+
+#portfolio-container th:nth-child(5), /* Price ($) */
+#portfolio-container td:nth-child(5) {
+    width: 9%; 
+    text-align: right;
+}
+
+#portfolio-container th:nth-child(6), /* Investment ($) */
+#portfolio-container td:nth-child(6) {
+    width: 11%; 
+    text-align: right; 
+}
+
+#portfolio-container th:nth-child(7), /* Ideal Investment ($) */
+#portfolio-container td:nth-child(7) {
+    width: 12%; /* New column width */
+    text-align: right;
+}
+
+#portfolio-container th:nth-child(8), /* % of Portfolio */
+#portfolio-container td:nth-child(8) {
+    width: 11%; 
+}
+
+#portfolio-container th:nth-child(9), /* % of Index */
+#portfolio-container td:nth-child(9) {
+    width: 11%; 
+}
+
+#portfolio-container th:nth-child(10), /* Difference (%) */
+#portfolio-container td:nth-child(10) {
+    width: 11%; 
 }

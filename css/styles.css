@@ -2,7 +2,7 @@ body {
     font-family:
         -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
         "Open Sans", "Helvetica Neue", sans-serif;
-    max-width: 800px;
+    max-width: 1200px; /* Increased max-width for wider table */
     margin: 0 auto;
     padding: 20px;
     background-color: #fdf6e3;

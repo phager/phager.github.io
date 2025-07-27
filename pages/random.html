@@ -13,12 +13,14 @@
         <h1>Direct Indexing Portfolio Builder</h1>
         <div class="slider-container">
             <label for="investment-slider">Investment Amount: $<span id="slider-value">500000</span></label>
-            <input type="range" id="investment-slider" min="1" max="1000000" value="500000">
+            <input type="range" id="investment-slider" min="9" max="1000000" value="500000">
+            <input type="number" id="investment-input" min="9" max="1000000" value="500000">
         </div>
         <button id="download-portfolio">Download Portfolio (JSON)</button>
         <div id="portfolio-container"></div>
     </main>
-    <script src="../js/scripts/loadComponents.js"></script>
-    <script src="../js/scripts/direct-indexing.js"></script>
+    <script type="module" src="../js/scripts/loadComponents.js"></script>
+    <script type="module" src="../js/scripts/csv-loader.js"></script>
+    <script type="module" src="../js/scripts/direct-indexing.js"></script>
 </body>
 </html>
