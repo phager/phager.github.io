@@ -92,17 +92,14 @@ export const tableData = {
             },
             {
                 logo: {
-                    src: "",
+                    src: "https://en.wikipedia.org/wiki/File:Stumptown_Coffee_Roasters_logo.jpeg",
                     alt: "Stumptown Coffee logo",
                 },
                 company: {
                     text: "Stumptown",
-                    link: "",
+                    link: "https://amzn.to/4mlO5u9",
                 },
-                coffee: {
-                    text: "Founder's",
-                    link: "",
-                },
+                coffee: { text: "Founder's" },
                 tier: "A",
                 dateAdded: "2025-07-26",
             },
