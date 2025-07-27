@@ -23,13 +23,13 @@ describe('calculatePortfolio', () => {
         expect(googl.investment).toBe(2800);
 
         const msft = portfolio.find(s => s.symbol === 'MSFT');
-        expect(msft.shares).toBe(17);
-        expect(msft.investment).toBe(5100);
+        expect(msft.shares).toBe(3);
+        expect(msft.investment).toBe(900);
 
         const amzn = portfolio.find(s => s.symbol === 'AMZN');
         expect(amzn).toBeUndefined();
 
-        expect(totalInvestment).toBe(9850);
+        expect(totalInvestment).toBe(5650);
     });
 
     test('should handle zero investment', () => {
@@ -51,5 +51,30 @@ describe('calculatePortfolio', () => {
         const { portfolio, totalInvestment } = calculatePortfolio(investmentAmount, stockData);
         expect(portfolio.length).toBe(0);
         expect(totalInvestment).toBe(0);
+    });
+
+    test('should correctly use remaining cash in the greedy fill step', () => {
+        const stockData = [
+            { "Company": "Stock A", "Symbol": "A", "Weight": "50%", "Price": "100" },
+            { "Company": "Stock B", "Symbol": "B", "Weight": "50%", "Price": "120" }
+        ];
+        const investmentAmount = 1000;
+        const { portfolio, totalInvestment } = calculatePortfolio(investmentAmount, stockData);
+
+        // Ideal investment: A = $500, B = $500
+        // Initial allocation:
+        //   A: floor(500/100) = 5 shares ($500)
+        //   B: floor(500/120) = 4 shares ($480)
+        // Total initial investment: $980. Remaining cash: $20.
+        // The greedy algorithm should not buy anything else as the remaining cash is less than any stock price.
+        
+        const stockA = portfolio.find(s => s.symbol === 'A');
+        const stockB = portfolio.find(s => s.symbol === 'B');
+
+        expect(stockA.shares).toBe(5);
+        expect(stockA.investment).toBe(500);
+        expect(stockB.shares).toBe(4);
+        expect(stockB.investment).toBe(480);
+        expect(totalInvestment).toBe(980);
     });
 });
