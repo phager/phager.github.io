@@ -27,8 +27,14 @@ export const tableData = {
             },
             {
                 logo: companyLogoLookup["Saint Frank Coffee"],
-                company: { text: "Saint Frank Coffee" },
-                coffee: {},
+                company: {
+                    text: "Saint Frank Coffee",
+                    link: "",
+                },
+                coffee: {
+                    text: "Ninga Hill Natural PB Espresso",
+                    link: "",
+                },
                 tier: "S",
                 dateAdded: "2025-07-26",
             },
@@ -95,14 +101,34 @@ export const tableData = {
                 dateAdded: "2025-01-01",
             },
             {
-                company: { text: "Stumptown" },
-                coffee: { text: "Founder's" },
+                logo: {
+                    src: "",
+                    alt: "Stumptown Coffee logo",
+                },
+                company: {
+                    text: "Stumptown",
+                    link: "",
+                },
+                coffee: {
+                    text: "Founder's",
+                    link: "",
+                },
                 tier: "A",
                 dateAdded: "2025-07-26",
             },
             {
-                company: { text: "Sightglass" },
-                coffee: { text: "Owl's Howl" },
+                logo: {
+                    src: "",
+                    alt: "Sightglass Coffee logo",
+                },
+                company: {
+                    text: "Sightglass",
+                    link: "",
+                },
+                coffee: {
+                    text: "Owl's Howl",
+                    link: "",
+                },
                 tier: "A",
                 dateAdded: "2025-07-26",
             },
@@ -110,7 +136,8 @@ export const tableData = {
                 logo: companyLogoLookup["Saint Frank Coffee"],
                 company: { text: "Saint Frank Coffee" },
                 coffee: {
-                    text: "Espresso",
+                    text: "Little Brother Espresso",
+                    link: "",
                 },
                 tier: "B",
                 dateAdded: "2025-01-01",
