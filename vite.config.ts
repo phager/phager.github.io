@@ -7,5 +7,5 @@ export default defineConfig({
       polyfill: true
     }
   },
-  
-}) 
+
+})
